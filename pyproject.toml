@@ -1,0 +1,18 @@
+[project]
+name = "reml"
+version = "0.1.0"
+description = "Rebuilding Machine Learning from Scratch"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+
+[tool.setuptools]
+packages = ["reml"]
