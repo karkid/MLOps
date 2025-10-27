@@ -25,3 +25,6 @@ class Normalizer:
 
     def fit_transform(self, X, y=None):
         return self.fit(X, y).transform(X)
+    
+    def __repr__(self):
+        return f"Normalizer(norm={self.norm})"

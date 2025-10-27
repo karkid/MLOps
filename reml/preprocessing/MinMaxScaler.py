@@ -23,4 +23,7 @@ class MinMaxScaler:
 
     def fit_transform(self, X, y=None):
         return self.fit(X, y).transform(X)
+    
+    def __repr__(self):
+        return f"MinMaxScaler(feature_range=({self.feature_min, self.feature_max}))"
 
