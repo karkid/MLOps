@@ -3,7 +3,6 @@
 default:
 	@just --list
 
-
 # Set UV to use copy mode instead of hardlinks to avoid warnings
 export UV_LINK_MODE := "copy"
 
@@ -12,8 +11,8 @@ init: check-uv
     @echo "Creating virtual environment and syncing dependencies..."
     uv venv
     uv sync
-    @echo "Installing development dependencies..."
-    uv pip install -e ".[dev]"
+    @echo "Installing dependencies..."
+    uv pip install -e ".[dev,notebook]"
 
 [confirm("This will delete your virtual environment and reinstall all dependencies. Continue?")]
 [doc("Reinstall all dependencies from scratch")]
@@ -52,18 +51,45 @@ check-uv:
 [windows]
 clean:
     @echo "Cleaning up virtual environment and build artifacts..."
-    @powershell -Command 'Remove-Item -Recurse -Force dist, build, .mypy_cache, .pytest_cache, .ruff_cache, .coverage -ErrorAction SilentlyContinue; Get-ChildItem -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force'
+    @powershell -Command 'Remove-Item -Recurse -Force .venv, dist, build, .mypy_cache, .pytest_cache, .ruff_cache, .coverage -ErrorAction SilentlyContinue; Get-ChildItem -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force'
 
 [unix]
 clean:
     @echo "Cleaning up virtual environment and build artifacts..."
-    @rm -rf dist build .mypy_cache .pytest_cache .ruff_cache .coverage
+    @rm -rf .venv dist build .mypy_cache .pytest_cache .ruff_cache .coverage
     @find . -type d -name "__pycache__" -exec rm -rf {} +
 
-[doc("Add a development setup recipe for installing additional tools")]
-dev-setup:
+[doc("Add a development dependencies recipe for installing additional tools")]
+dev-deps:
     @echo "Installing development tools..."
     uv pip install -e ".[dev]"
+
+[doc("Install notebook runtime dependencies using uv and the pyproject extras")]
+notebook-deps:
+    @echo "Installing notebook extras via pyproject.toml (uv)"
+    uv pip install -e ".[notebook]"
+    @echo "Registering ipykernel for the environment"
+    uv run python -m ipykernel install --user --name reml-venv --display-name "Python (uv - reml)"
+
+[doc("Add a package to project metadata")]
+add PACKAGE FLAG="":
+    @echo "Adding package '{{PACKAGE}}' (flag='{{FLAG}}')"
+    @FLAG='{{FLAG}}'; \
+    if [ -n "$FLAG" ]; then \
+        uv add '{{PACKAGE}}' --optional {{FLAG}}; \
+    else \
+        uv add '{{PACKAGE}}'; \
+    fi
+
+[doc("Remove a package from project metadata")]
+remove PACKAGE FLAG="":
+    @echo "Removing package '{{PACKAGE}}' (flag='{{FLAG}}')"
+    @FLAG='{{FLAG}}'; \
+    if [ -n "$FLAG" ]; then \
+        uv remove '{{PACKAGE}}' --optional {{FLAG}}; \
+    else \
+        uv remove '{{PACKAGE}}'; \
+    fi
 
 [doc("Run tests with coverage report")]
 coverage:

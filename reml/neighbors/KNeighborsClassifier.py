@@ -48,7 +48,8 @@ class KNeighborsClassifier:
 
             # Sort by distance first, then favor points below the query point
             k = min(self.k, len(distances))
-            order = np.lexsort((points_less, distances))  # Points less than x come first
+            # Points less than x come first
+            order = np.lexsort((points_less, distances))
             k_indices = order[:k]
             k_labels = self.y_train[k_indices]
 
