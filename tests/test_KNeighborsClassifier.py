@@ -72,3 +72,71 @@ def test_k3_majority_vote(toy_data):
 def test_repr():
     clf = KNeighborsClassifier(k=7)
     assert repr(clf) == "KNeighborsClassifier(k=7)"
+
+def test_invalid_k():
+    with pytest.raises(ValueError):
+        KNeighborsClassifier(k=0)
+    with pytest.raises(ValueError):
+        KNeighborsClassifier(k=-1)
+
+
+def test_predict_proba():
+    X = np.array([[1], [2], [3], [4], [5]])
+    y = np.array([0, 0, 1, 1, 1])
+    clf = KNeighborsClassifier(k=3)
+    clf.fit(X, y)
+    
+    proba = clf.predict_proba(np.array([[2.5]]))
+    np.testing.assert_array_almost_equal(proba, np.array([[0.33333333, 0.66666667]]))
+
+
+def test_empty_training_data():
+    clf = KNeighborsClassifier()
+    with pytest.raises(ValueError):
+        clf.fit(np.array([]), np.array([]))
+
+
+def test_predict_single_class():
+    X = np.array([[1], [2], [3]])
+    y = np.array([1, 1, 1])
+    clf = KNeighborsClassifier()
+    clf.fit(X, y)
+    
+    pred = clf.predict(np.array([[2]]))
+    assert pred[0] == 1
+
+
+def test_weights_distance():
+    """Test distance-based weighting."""
+    X = np.array([[1], [2], [10]])
+    y = np.array([0, 0, 1])
+    clf = KNeighborsClassifier(k=3, weights="distance")
+    clf.fit(X, y)
+    
+    # Point at 1.9 should be classified as 0 due to two close neighbors
+    pred = clf.predict([[1.9]])
+    assert pred[0] == 0
+
+
+def test_k_larger_than_samples():
+    """Test behavior when k > n_samples."""
+    X = np.array([[1], [2]])
+    y = np.array([0, 1])
+    clf = KNeighborsClassifier(k=3)
+    clf.fit(X, y)
+    
+    pred = clf.predict([[1.5]])
+    # Should still work, using all available samples
+    assert pred.shape == (1,)
+
+
+def test_multiclass():
+    """Test with more than two classes."""
+    X = np.array([[0], [1], [2], [3], [4], [5]])
+    y = np.array([0, 0, 1, 1, 2, 2])
+    clf = KNeighborsClassifier(k=2)
+    clf.fit(X, y)
+    
+    proba = clf.predict_proba([[2.5]])
+    assert proba.shape == (1, 3)  # Three classes
+    np.testing.assert_array_almost_equal(np.sum(proba, axis=1), [1.0])

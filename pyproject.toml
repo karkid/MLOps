@@ -2,17 +2,91 @@
 name = "reml"
 version = "0.1.0"
 description = "Rebuilding Machine Learning from Scratch"
+authors = [{ name = "Dheeraj Karki" }]
 readme = "README.md"
+keywords = ["machine-learning", "algorithms", "scratch", "ml", "ai"]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
 requires-python = ">=3.12"
 dependencies = [
     "matplotlib>=3.10.7",
     "numpy>=2.3.4",
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
+    "just>=0.8.165",
     "pytest>=8.4.2",
+    "pytest-cov>=4.1.0",
+    "pytest-xdist>=3.5.0",
+    "ruff>=0.1.5",
+    "build>=1.0.3",
+    "mypy>=1.7.0",
+    "coverage>=7.3.2"
 ]
 
-[tool.setuptools]
-packages = ["reml"]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=reml --cov-report=term-missing"
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["reml"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+    "raise ImportError",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "W", "C90"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[project.urls]
+Homepage = "https://github.com/karkid/ReML"
+Documentation = "https://github.com/karkid/ReML#readme"
+Repository = "https://github.com/karkid/ReML.git"
+Issues = "https://github.com/karkid/ReML/issues"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unreachable = true

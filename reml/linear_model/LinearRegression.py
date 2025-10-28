@@ -1,11 +1,15 @@
 import numpy as np
 
+from reml.utils.decorators import check_fitter
+
+
 class LinearRegression:
     def __init__(self, learning_rate=0.001, n_iteration=1000):
         self.learning_rate = learning_rate
         self.n_iteration = n_iteration
         self.weights = None
         self.bias = None
+        self.is_fitted = False
         self.losses = []  # tracking of loss over iterations
 
     def _as_2d(self, X):
@@ -37,20 +41,22 @@ class LinearRegression:
 
             # update
             self.weights -= self.learning_rate * dw
-            self.bias    -= self.learning_rate * db
+            self.bias -= self.learning_rate * db
 
             # track half-MSE (matches gradient convention)
-            loss = 0.5 * np.mean(error ** 2)
+            loss = 0.5 * np.mean(error**2)
             self.losses.append(loss)
 
+        self.is_fitted = True
         return self
 
+    @check_fitter
     def predict(self, X):
         X = self._as_2d(X)
-        if self.weights is None or self.bias is None:
-            raise ValueError("Model is not fitted yet.")
         return X @ self.weights + self.bias
 
-    
     def __repr__(self):
-        return f"LinearRegression(learning_rate={self.learning_rate}, n_iteration={self.n_iteration})"
+        return (
+            f"LinearRegression(learning_rate={self.learning_rate}, "
+            f"n_iteration={self.n_iteration})"
+        )
