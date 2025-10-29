@@ -51,12 +51,12 @@ check-uv:
 [windows]
 clean:
     @echo "Cleaning up virtual environment and build artifacts..."
-    @powershell -Command 'Remove-Item -Recurse -Force .venv, dist, build, .mypy_cache, .pytest_cache, .ruff_cache, .coverage -ErrorAction SilentlyContinue; Get-ChildItem -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force'
+    @powershell -Command 'Remove-Item -Recurse -Force .venv, dist, build, .mypy_cache, .pytest_cache, .ruff_cache, .coverage, htmlcov, coverage.xml -ErrorAction SilentlyContinue; Get-ChildItem -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force'
 
 [unix]
 clean:
     @echo "Cleaning up virtual environment and build artifacts..."
-    @rm -rf .venv dist build .mypy_cache .pytest_cache .ruff_cache .coverage
+    @rm -rf .venv dist build .mypy_cache .pytest_cache .ruff_cache .coverage htmlcov coverage.xml
     @find . -type d -name "__pycache__" -exec rm -rf {} +
 
 [doc("Add a development dependencies recipe for installing additional tools")]
@@ -93,7 +93,11 @@ remove PACKAGE FLAG="":
 
 [doc("Run tests with coverage report")]
 coverage:
-    uv run pytest --cov=reml --cov-report=term-missing
+    uv run pytest --cov=reml --cov-report=term-missing --cov-report=xml
+
+[doc("Run tests with coverage report in html format")]
+coverage-html:
+    uv run pytest --cov=reml --cov-report=term-missing --cov-report=html
 
 [doc("Build package for distribution")]
 build:
