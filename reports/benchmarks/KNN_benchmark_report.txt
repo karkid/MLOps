@@ -1,0 +1,90 @@
+🔬 BENCHMARK REPORT
+============================================================
+Algorithm: KNN
+Generated: 2025-10-29 23:08:25
+
+1. IRIS DATASET
+----------------------------------------
+   Shape: 150 samples × 4 features
+   Classes: 3
+   ReML Accuracy: 0.9526
+   Sklearn Accuracy: 0.9526
+   Accuracy Difference: 0.0000
+   Speed Ratio: 11.91x
+
+   Parameter Performance:
+      3: ReML=0.948, Sklearn=0.948
+      5: ReML=0.948, Sklearn=0.948
+      7: ReML=0.956, Sklearn=0.956
+      9: ReML=0.948, Sklearn=0.948
+      11: ReML=0.963, Sklearn=0.963
+
+2. WINE DATASET
+----------------------------------------
+   Shape: 178 samples × 13 features
+   Classes: 3
+   ReML Accuracy: 0.9469
+   Sklearn Accuracy: 0.9469
+   Accuracy Difference: 0.0000
+   Speed Ratio: 19.93x
+
+   Parameter Performance:
+      3: ReML=0.932, Sklearn=0.932
+      5: ReML=0.944, Sklearn=0.944
+      7: ReML=0.944, Sklearn=0.944
+      9: ReML=0.957, Sklearn=0.957
+      11: ReML=0.957, Sklearn=0.957
+
+3. BREAST_CANCER DATASET
+----------------------------------------
+   Shape: 569 samples × 30 features
+   Classes: 2
+   ReML Accuracy: 0.9614
+   Sklearn Accuracy: 0.9614
+   Accuracy Difference: 0.0000
+   Speed Ratio: 63.17x
+
+   Parameter Performance:
+      3: ReML=0.959, Sklearn=0.959
+      5: ReML=0.963, Sklearn=0.963
+      7: ReML=0.963, Sklearn=0.963
+      9: ReML=0.957, Sklearn=0.957
+      11: ReML=0.965, Sklearn=0.965
+
+4. SYNTHETIC_CLASSIFICATION DATASET
+----------------------------------------
+   Shape: 800 samples × 20 features
+   Classes: 3
+   ReML Accuracy: 0.8297
+   Sklearn Accuracy: 0.8297
+   Accuracy Difference: 0.0033
+   Speed Ratio: 213.86x
+
+   Parameter Performance:
+      3: ReML=0.810, Sklearn=0.815
+      5: ReML=0.817, Sklearn=0.817
+      7: ReML=0.843, Sklearn=0.836
+      9: ReML=0.837, Sklearn=0.836
+      11: ReML=0.842, Sklearn=0.844
+
+5. SYNTHETIC_BINARY DATASET
+----------------------------------------
+   Shape: 800 samples × 10 features
+   Classes: 2
+   ReML Accuracy: 0.8997
+   Sklearn Accuracy: 0.8997
+   Accuracy Difference: 0.0000
+   Speed Ratio: 147.80x
+
+   Parameter Performance:
+      3: ReML=0.894, Sklearn=0.894
+      5: ReML=0.901, Sklearn=0.901
+      7: ReML=0.900, Sklearn=0.900
+      9: ReML=0.910, Sklearn=0.910
+      11: ReML=0.893, Sklearn=0.893
+
+📊 OVERALL SUMMARY
+----------------------------------------
+Average Accuracy Difference: 0.0007
+Max Accuracy Difference: 0.0033
+Average Speed Ratio: 91.33x

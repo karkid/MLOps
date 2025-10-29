@@ -1,0 +1,572 @@
+{
+  "algorithm": "KNN",
+  "timestamp": "20251029_230825",
+  "metadata": {
+    "config": {
+      "algorithm_name": "KNN",
+      "param_name": "k",
+      "param_values": [
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "n_trials": 3,
+      "test_size": 0.3,
+      "random_state": 42,
+      "output_dir": null,
+      "additional_params": {
+        "weights": "uniform"
+      },
+      "sklearn_param_name": "n_neighbors",
+      "sklearn_additional_params": {
+        "weights": "uniform"
+      }
+    },
+    "reml_class": "KNeighborsClassifier",
+    "sklearn_class": "KNeighborsClassifier",
+    "datasets": [
+      "iris",
+      "wine",
+      "breast_cancer",
+      "synthetic_classification",
+      "synthetic_binary"
+    ],
+    "preprocessing": "StandardScaler"
+  },
+  "results": [
+    {
+      "dataset": "iris",
+      "shape": [
+        150,
+        4
+      ],
+      "n_classes": 3,
+      "target_names": [
+        "setosa",
+        "versicolor",
+        "virginica"
+      ],
+      "param_values": {
+        "3": {
+          "reml": {
+            "accuracy": 0.9481481481481482,
+            "time": 0.00709231694539388,
+            "std_accuracy": 0.02771598064276994,
+            "std_time": 0.00014957294698902585
+          },
+          "sklearn": {
+            "accuracy": 0.9481481481481482,
+            "time": 0.0011652310689290364,
+            "std_accuracy": 0.02771598064276994,
+            "std_time": 0.0009238331865206484
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 6.086618469513027
+        },
+        "5": {
+          "reml": {
+            "accuracy": 0.9481481481481482,
+            "time": 0.007021188735961914,
+            "std_accuracy": 0.02771598064276994,
+            "std_time": 3.3843683163114527e-05
+          },
+          "sklearn": {
+            "accuracy": 0.9481481481481482,
+            "time": 0.00042629241943359375,
+            "std_accuracy": 0.02771598064276994,
+            "std_time": 2.8849633255207093e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 16.47035794183445
+        },
+        "7": {
+          "reml": {
+            "accuracy": 0.9555555555555556,
+            "time": 0.006967941919962565,
+            "std_accuracy": 0.01814436846506056,
+            "std_time": 0.00014762279963568344
+          },
+          "sklearn": {
+            "accuracy": 0.9555555555555556,
+            "time": 0.0004936059315999349,
+            "std_accuracy": 0.01814436846506056,
+            "std_time": 5.843487570323197e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 14.116406375784898
+        },
+        "9": {
+          "reml": {
+            "accuracy": 0.9481481481481482,
+            "time": 0.007033745447794597,
+            "std_accuracy": 0.010475656017578498,
+            "std_time": 8.662381301934636e-05
+          },
+          "sklearn": {
+            "accuracy": 0.9481481481481482,
+            "time": 0.0004112720489501953,
+            "std_accuracy": 0.010475656017578498,
+            "std_time": 5.564235389777595e-06
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 17.102415458937198
+        },
+        "11": {
+          "reml": {
+            "accuracy": 0.9629629629629629,
+            "time": 0.006992499033610026,
+            "std_accuracy": 0.010475656017578444,
+            "std_time": 0.00011178727138187847
+          },
+          "sklearn": {
+            "accuracy": 0.9629629629629629,
+            "time": 0.0004509290059407552,
+            "std_accuracy": 0.010475656017578444,
+            "std_time": 7.508036223580349e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 15.506873457878042
+        }
+      },
+      "summary": {
+        "avg_accuracy_reml": 0.9525925925925927,
+        "avg_accuracy_sklearn": 0.9525925925925927,
+        "avg_time_reml": 0.0070215384165445965,
+        "avg_time_sklearn": 0.0005894660949707031,
+        "max_accuracy_diff": 0.0,
+        "min_accuracy_diff": 0.0,
+        "avg_accuracy_diff": 0.0,
+        "speed_ratio": 11.911691743515073
+      }
+    },
+    {
+      "dataset": "wine",
+      "shape": [
+        178,
+        13
+      ],
+      "n_classes": 3,
+      "target_names": [
+        "class_0",
+        "class_1",
+        "class_2"
+      ],
+      "param_values": {
+        "3": {
+          "reml": {
+            "accuracy": 0.9320987654320988,
+            "time": 0.009722709655761719,
+            "std_accuracy": 0.031475429096251756,
+            "std_time": 8.323802336503878e-05
+          },
+          "sklearn": {
+            "accuracy": 0.9320987654320988,
+            "time": 0.00043892860412597656,
+            "std_accuracy": 0.031475429096251756,
+            "std_time": 1.258434602775254e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 22.151004888647474
+        },
+        "5": {
+          "reml": {
+            "accuracy": 0.9444444444444445,
+            "time": 0.009804964065551758,
+            "std_accuracy": 0.0302406141084343,
+            "std_time": 9.905730088875456e-05
+          },
+          "sklearn": {
+            "accuracy": 0.9444444444444445,
+            "time": 0.0004436969757080078,
+            "std_accuracy": 0.0302406141084343,
+            "std_time": 2.8008517916728913e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 22.098334228909188
+        },
+        "7": {
+          "reml": {
+            "accuracy": 0.9444444444444445,
+            "time": 0.009832620620727539,
+            "std_accuracy": 0.0302406141084343,
+            "std_time": 7.294205923451593e-05
+          },
+          "sklearn": {
+            "accuracy": 0.9444444444444445,
+            "time": 0.0004684925079345703,
+            "std_accuracy": 0.0302406141084343,
+            "std_time": 5.715783984377016e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 20.987786259541984
+        },
+        "9": {
+          "reml": {
+            "accuracy": 0.95679012345679,
+            "time": 0.010140577952067057,
+            "std_accuracy": 0.023096650535641618,
+            "std_time": 0.00018667452402919299
+          },
+          "sklearn": {
+            "accuracy": 0.95679012345679,
+            "time": 0.0006139278411865234,
+            "std_accuracy": 0.023096650535641618,
+            "std_time": 6.728502914737251e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 16.51754045307443
+        },
+        "11": {
+          "reml": {
+            "accuracy": 0.95679012345679,
+            "time": 0.009917974472045898,
+            "std_accuracy": 0.008729713347982055,
+            "std_time": 4.830433373309736e-05
+          },
+          "sklearn": {
+            "accuracy": 0.95679012345679,
+            "time": 0.0005147457122802734,
+            "std_accuracy": 0.008729713347982055,
+            "std_time": 5.7755393735909516e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 19.26771653543307
+        }
+      },
+      "summary": {
+        "avg_accuracy_reml": 0.9469135802469136,
+        "avg_accuracy_sklearn": 0.9469135802469136,
+        "avg_time_reml": 0.009883769353230794,
+        "avg_time_sklearn": 0.0004959583282470703,
+        "max_accuracy_diff": 0.0,
+        "min_accuracy_diff": 0.0,
+        "avg_accuracy_diff": 0.0,
+        "speed_ratio": 19.928628657500884
+      }
+    },
+    {
+      "dataset": "breast_cancer",
+      "shape": [
+        569,
+        30
+      ],
+      "n_classes": 2,
+      "target_names": [
+        "malignant",
+        "benign"
+      ],
+      "param_values": {
+        "3": {
+          "reml": {
+            "accuracy": 0.9590643274853802,
+            "time": 0.11108954747517903,
+            "std_accuracy": 0.008270254750719828,
+            "std_time": 0.008650859385709943
+          },
+          "sklearn": {
+            "accuracy": 0.9590643274853802,
+            "time": 0.0063313643137613935,
+            "std_accuracy": 0.008270254750719828,
+            "std_time": 0.008158722798663951
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 17.54590984974958
+        },
+        "5": {
+          "reml": {
+            "accuracy": 0.9629629629629629,
+            "time": 0.10744476318359375,
+            "std_accuracy": 0.015348943224194554,
+            "std_time": 0.000833736919460018
+          },
+          "sklearn": {
+            "accuracy": 0.9629629629629629,
+            "time": 0.0006796518961588541,
+            "std_accuracy": 0.015348943224194554,
+            "std_time": 0.00015019441168830184
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 158.08793264733396
+        },
+        "7": {
+          "reml": {
+            "accuracy": 0.9629629629629629,
+            "time": 0.11171905199686687,
+            "std_accuracy": 0.016768665237899834,
+            "std_time": 0.00048624900126282796
+          },
+          "sklearn": {
+            "accuracy": 0.9629629629629629,
+            "time": 0.0006109873453776041,
+            "std_accuracy": 0.016768665237899834,
+            "std_time": 6.83343676669984e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 182.8500260145682
+        },
+        "9": {
+          "reml": {
+            "accuracy": 0.9571150097465887,
+            "time": 0.11668864885965984,
+            "std_accuracy": 0.012016401565241645,
+            "std_time": 0.004234044935894085
+          },
+          "sklearn": {
+            "accuracy": 0.9571150097465887,
+            "time": 0.0005729198455810547,
+            "std_accuracy": 0.012016401565241645,
+            "std_time": 6.911041399075183e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 203.67360244139272
+        },
+        "11": {
+          "reml": {
+            "accuracy": 0.9649122807017544,
+            "time": 0.1137549877166748,
+            "std_accuracy": 0.008270254750719828,
+            "std_time": 0.0019663433901906846
+          },
+          "sklearn": {
+            "accuracy": 0.9649122807017544,
+            "time": 0.0006814002990722656,
+            "std_accuracy": 0.008270254750719828,
+            "std_time": 7.681889536836574e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 166.94296710986703
+        }
+      },
+      "summary": {
+        "avg_accuracy_reml": 0.9614035087719298,
+        "avg_accuracy_sklearn": 0.9614035087719298,
+        "avg_time_reml": 0.11213939984639487,
+        "avg_time_sklearn": 0.0017752647399902344,
+        "max_accuracy_diff": 0.0,
+        "min_accuracy_diff": 0.0,
+        "avg_accuracy_diff": 0.0,
+        "speed_ratio": 63.16770525561824
+      }
+    },
+    {
+      "dataset": "synthetic_classification",
+      "shape": [
+        800,
+        20
+      ],
+      "n_classes": 3,
+      "target_names": [
+        "Class_0",
+        "Class_1",
+        "Class_2"
+      ],
+      "param_values": {
+        "3": {
+          "reml": {
+            "accuracy": 0.8097222222222222,
+            "time": 0.21694294611612955,
+            "std_accuracy": 0.02853144247801964,
+            "std_time": 0.001175029421897728
+          },
+          "sklearn": {
+            "accuracy": 0.8152777777777779,
+            "time": 0.0008222262064615885,
+            "std_accuracy": 0.034077344851070286,
+            "std_time": 2.043302707865885e-05
+          },
+          "accuracy_diff": 0.005555555555555647,
+          "speed_ratio": 263.8482505316064
+        },
+        "5": {
+          "reml": {
+            "accuracy": 0.8166666666666665,
+            "time": 0.21916556358337402,
+            "std_accuracy": 0.017010345435994324,
+            "std_time": 0.0006553802219699881
+          },
+          "sklearn": {
+            "accuracy": 0.8166666666666668,
+            "time": 0.0008965333302815756,
+            "std_accuracy": 0.012266334536566462,
+            "std_time": 0.00010008665675127822
+          },
+          "accuracy_diff": 2.220446049250313e-16,
+          "speed_ratio": 244.45891321691337
+        },
+        "7": {
+          "reml": {
+            "accuracy": 0.8430555555555556,
+            "time": 0.21805961926778158,
+            "std_accuracy": 0.014163943093313291,
+            "std_time": 0.0035410708086404973
+          },
+          "sklearn": {
+            "accuracy": 0.8361111111111111,
+            "time": 0.0011066595713297527,
+            "std_accuracy": 0.007856742013183886,
+            "std_time": 2.3502746238421086e-05
+          },
+          "accuracy_diff": 0.00694444444444442,
+          "speed_ratio": 197.04308797127467
+        },
+        "9": {
+          "reml": {
+            "accuracy": 0.8374999999999999,
+            "time": 0.21247498194376627,
+            "std_accuracy": 0.018002057495577376,
+            "std_time": 0.0010541542121003096
+          },
+          "sklearn": {
+            "accuracy": 0.8361111111111111,
+            "time": 0.0010937849680582683,
+            "std_accuracy": 0.01993430568667682,
+            "std_time": 3.569242832544059e-05
+          },
+          "accuracy_diff": 0.001388888888888773,
+          "speed_ratio": 194.25663009518271
+        },
+        "11": {
+          "reml": {
+            "accuracy": 0.8416666666666667,
+            "time": 0.2162315845489502,
+            "std_accuracy": 0.02041241452319317,
+            "std_time": 0.0022642137347351375
+          },
+          "sklearn": {
+            "accuracy": 0.8444444444444444,
+            "time": 0.0011442502339680989,
+            "std_accuracy": 0.017458062624967435,
+            "std_time": 0.00015510826158838072
+          },
+          "accuracy_diff": 0.002777777777777768,
+          "speed_ratio": 188.9722878177525
+        }
+      },
+      "summary": {
+        "avg_accuracy_reml": 0.829722222222222,
+        "avg_accuracy_sklearn": 0.8297222222222222,
+        "avg_time_reml": 0.2165749390920003,
+        "avg_time_sklearn": 0.0010126908620198569,
+        "max_accuracy_diff": 0.00694444444444442,
+        "min_accuracy_diff": 2.220446049250313e-16,
+        "avg_accuracy_diff": 0.003333333333333366,
+        "speed_ratio": 213.86086042095013
+      }
+    },
+    {
+      "dataset": "synthetic_binary",
+      "shape": [
+        800,
+        10
+      ],
+      "n_classes": 2,
+      "target_names": [
+        "Class_0",
+        "Class_1"
+      ],
+      "param_values": {
+        "3": {
+          "reml": {
+            "accuracy": 0.8944444444444445,
+            "time": 0.20450599988301596,
+            "std_accuracy": 0.01093612204723864,
+            "std_time": 0.010310770435402945
+          },
+          "sklearn": {
+            "accuracy": 0.8944444444444445,
+            "time": 0.0012900829315185547,
+            "std_accuracy": 0.01093612204723864,
+            "std_time": 0.00010757302560590109
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 158.52159181913387
+        },
+        "5": {
+          "reml": {
+            "accuracy": 0.9013888888888889,
+            "time": 0.19796649614969888,
+            "std_accuracy": 0.01194767398200365,
+            "std_time": 0.0017035526331949074
+          },
+          "sklearn": {
+            "accuracy": 0.9013888888888889,
+            "time": 0.0013022422790527344,
+            "std_accuracy": 0.01194767398200365,
+            "std_time": 2.708823999945149e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 152.01971194922493
+        },
+        "7": {
+          "reml": {
+            "accuracy": 0.9,
+            "time": 0.19761371612548828,
+            "std_accuracy": 0.018941919023591488,
+            "std_time": 0.0005031972332946136
+          },
+          "sklearn": {
+            "accuracy": 0.9,
+            "time": 0.0013590653737386067,
+            "std_accuracy": 0.018941919023591488,
+            "std_time": 5.451757080097791e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 145.40412841354308
+        },
+        "9": {
+          "reml": {
+            "accuracy": 0.9097222222222222,
+            "time": 0.19857104619344076,
+            "std_accuracy": 0.003928371006591917,
+            "std_time": 0.0006056346375013002
+          },
+          "sklearn": {
+            "accuracy": 0.9097222222222222,
+            "time": 0.0013856887817382812,
+            "std_accuracy": 0.003928371006591917,
+            "std_time": 6.783947798606143e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 143.30133058040835
+        },
+        "11": {
+          "reml": {
+            "accuracy": 0.8930555555555556,
+            "time": 0.19834367434183756,
+            "std_accuracy": 0.015340779190537852,
+            "std_time": 0.000909988577904637
+          },
+          "sklearn": {
+            "accuracy": 0.8930555555555556,
+            "time": 0.0014087359110514324,
+            "std_accuracy": 0.015340779190537852,
+            "std_time": 6.77585247599573e-05
+          },
+          "accuracy_diff": 0.0,
+          "speed_ratio": 140.79549813832787
+        }
+      },
+      "summary": {
+        "avg_accuracy_reml": 0.8997222222222222,
+        "avg_accuracy_sklearn": 0.8997222222222222,
+        "avg_time_reml": 0.1994001865386963,
+        "avg_time_sklearn": 0.001349163055419922,
+        "max_accuracy_diff": 0.0,
+        "min_accuracy_diff": 0.0,
+        "avg_accuracy_diff": 0.0,
+        "speed_ratio": 147.79546900402912
+      }
+    }
+  ],
+  "summary": {
+    "total_datasets": 5,
+    "overall_avg_accuracy_diff": 0.0006666666666666733,
+    "overall_max_accuracy_diff": 0.003333333333333366,
+    "overall_min_accuracy_diff": 0.0,
+    "overall_avg_speed_ratio": 91.33287101632268,
+    "accuracy_consistency": 0.0013333333333333465,
+    "speed_consistency": 77.97525154215356
+  }
+}
