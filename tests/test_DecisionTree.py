@@ -8,15 +8,15 @@ class TestDecisionTree:
     def test_initialization(self):
         """Test DecisionTree initialization with default parameters."""
         dt = DecisionTree()
-        assert dt.min_sample_split == 2
+        assert dt.min_samples_split == 2
         assert dt.max_depth == 20
         assert dt.n_features is None
         assert dt.root is None
 
     def test_initialization_with_params(self):
         """Test DecisionTree initialization with custom parameters."""
-        dt = DecisionTree(min_sample_split=5, max_depth=10, n_features=3)
-        assert dt.min_sample_split == 5
+        dt = DecisionTree(min_samples_split=5, max_depth=10, n_features=3)
+        assert dt.min_samples_split == 5
         assert dt.max_depth == 10
         assert dt.n_features == 3
 
@@ -67,12 +67,12 @@ class TestDecisionTree:
         
         assert all(pred == 1 for pred in predictions)
 
-    def test_min_sample_split(self):
-        """Test that min_sample_split is respected."""
+    def test_min_samples_split(self):
+        """Test that min_samples_split is respected."""
         X = np.array([[0, 0], [1, 1]])
         y = np.array([0, 1])
         
-        dt = DecisionTree(min_sample_split=3)  # More than available samples
+        dt = DecisionTree(min_samples_split=3)  # More than available samples
         dt.fit(X, y)
         
         # Should create a leaf node with most common class

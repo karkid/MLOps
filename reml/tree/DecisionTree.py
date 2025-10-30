@@ -20,8 +20,8 @@ class Node:
 
 
 class DecisionTree:
-    def __init__(self, min_sample_split=2, max_depth=20, n_features=None):
-        self.min_sample_split = min_sample_split
+    def __init__(self, min_samples_split=2, max_depth=20, n_features=None):
+        self.min_samples_split = min_samples_split
         self.max_depth = max_depth
         self.n_features = n_features
         self.root = None
@@ -41,7 +41,7 @@ class DecisionTree:
         n_labels = len(np.unique(y))
 
         # cutoff condition
-        if depth > self.max_depth or n_samples < self.min_sample_split or n_labels == 1:
+        if depth > self.max_depth or n_samples < self.min_samples_split or n_labels == 1:
             most_common_label = Counter(y).most_common(1)[0][0]
             return Node(value=most_common_label)
 
