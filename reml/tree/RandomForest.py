@@ -36,6 +36,8 @@ class RandomForest:
 
     @check_fitter
     def predict(self, X):
-        predictions = np.array([tree.prediction(X) for tree in self.trees])
+        predictions = np.array([tree.predict(X) for tree in self.trees])
         trees_predictions = np.swapaxes(predictions, 0, 1)
-        return np.array([Counter(pred).most_common(1)[0] for pred in trees_predictions])
+        return np.array(
+            [Counter(pred).most_common(1)[0][0] for pred in trees_predictions]
+        )
