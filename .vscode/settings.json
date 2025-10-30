@@ -10,5 +10,14 @@
     "python.terminal.activateEnvironment": false,
     "github.copilot.enable": {
         "*": false
+    },
+    "files.exclude": {
+    "**/.venv": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
+    "**/.git": true,
+    "**/.ruff_cache": true,
+    "**/.coverage": true
     }
 }
