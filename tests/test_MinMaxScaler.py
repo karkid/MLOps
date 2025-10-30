@@ -2,6 +2,7 @@ import numpy as np
 import pytest
 
 from reml.preprocessing import MinMaxScaler
+from tests.utils import check_repr
 
 
 def test_minmax_scaler_fit():
@@ -38,3 +39,6 @@ def test_minmax_scaler_transform_before_fit():
     
     with pytest.raises(ValueError):
         scaler.transform(X)
+
+def test_repr():
+    check_repr(MinMaxScaler)

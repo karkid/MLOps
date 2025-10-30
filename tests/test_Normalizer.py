@@ -2,6 +2,7 @@ import numpy as np
 import pytest
 
 from reml.preprocessing import Normalizer
+from tests.utils import check_repr
 
 
 def test_normalizer_l2():
@@ -33,3 +34,6 @@ def test_normalizer_zero_vector():
     
     with pytest.raises(ValueError):
         normalizer.fit_transform(X)
+
+def test_repr():
+    check_repr(Normalizer)

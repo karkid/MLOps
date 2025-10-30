@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 
 from reml.preprocessing import StandardScaler
-
+from tests.utils import check_repr
 
 def test_standard_scaler_fit():
     scaler = StandardScaler()
@@ -38,3 +38,6 @@ def test_standard_scaler_transform_before_fit():
     
     with pytest.raises(ValueError):
         scaler.transform(X)
+
+def test_repr():
+    check_repr(StandardScaler)

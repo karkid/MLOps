@@ -1,8 +1,9 @@
 import numpy as np
 
-from reml.utils.decorators import check_fitter
+from reml.utils.decorators import auto_repr, check_fitter
 
 
+@auto_repr
 class LogisticRegression:
     def __init__(self, learning_rate=0.001, n_iteration=1000):
         self.learning_rate = float(learning_rate)
@@ -75,9 +76,3 @@ class LogisticRegression:
         proba = self.predict_proba(X)
         # Use probability of class 1 for thresholding
         return (proba[:, 1] >= threshold).astype(int)
-
-    def __repr__(self):
-        return (
-            f"LogisticRegression(learning_rate={self.learning_rate}, "
-            f"n_iteration={self.n_iteration})"
-        )

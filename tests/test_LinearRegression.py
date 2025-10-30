@@ -2,6 +2,7 @@ import numpy as np
 import pytest
 
 from reml.linear_model import LinearRegression
+from tests.utils import check_repr
 
 # --- Basic Fit Test ---
 def test_fit_basic():
@@ -94,3 +95,6 @@ def test_convergence():
     
     # Loss should decrease
     assert model.losses[-1] < model.losses[0]
+
+def test_repr():
+    check_repr(LinearRegression)

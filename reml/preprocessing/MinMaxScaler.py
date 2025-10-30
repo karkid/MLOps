@@ -1,8 +1,9 @@
 import numpy as np
 
-from reml.utils.decorators import check_fitter
+from reml.utils.decorators import auto_repr, check_fitter
 
 
+@auto_repr
 class MinMaxScaler:
     def __init__(self, feature_range=(0, 1)):
         self.feature_range = feature_range
@@ -28,6 +29,3 @@ class MinMaxScaler:
 
     def fit_transform(self, X, y=None):
         return self.fit(X, y).transform(X)
-
-    def __repr__(self):
-        return f"MinMaxScaler(feature_range=({self.feature_min, self.feature_max}))"

@@ -2,6 +2,7 @@ import numpy as np
 import pytest
 
 from reml.neighbors.KNeighborsClassifier import KNeighborsClassifier
+from tests.utils import check_repr
 
 @pytest.fixture
 def toy_data():
@@ -70,8 +71,7 @@ def test_k3_majority_vote(toy_data):
 
 
 def test_repr():
-    clf = KNeighborsClassifier(k=7)
-    assert repr(clf) == "KNeighborsClassifier(k=7)"
+    check_repr(KNeighborsClassifier)
 
 def test_invalid_k():
     with pytest.raises(ValueError):

@@ -1,8 +1,9 @@
 import numpy as np
 
-from reml.utils.decorators import check_fitter
+from reml.utils.decorators import auto_repr, check_fitter
 
 
+@auto_repr
 class StandardScaler:
     def __init__(self):
         self.mean_ = None
@@ -26,6 +27,3 @@ class StandardScaler:
 
     def fit_transform(self, X, y=None):
         return self.fit(X, y).transform(X)
-
-    def __repr__(self):
-        return "StandardScaler()"

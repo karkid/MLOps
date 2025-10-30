@@ -1,8 +1,9 @@
 import numpy as np
 
-from reml.utils.decorators import check_fitter
+from reml.utils.decorators import auto_repr, check_fitter
 
 
+@auto_repr
 class LinearRegression:
     def __init__(self, learning_rate=0.001, n_iteration=1000):
         self.learning_rate = learning_rate
@@ -54,9 +55,3 @@ class LinearRegression:
     def predict(self, X):
         X = self._as_2d(X)
         return X @ self.weights + self.bias
-
-    def __repr__(self):
-        return (
-            f"LinearRegression(learning_rate={self.learning_rate}, "
-            f"n_iteration={self.n_iteration})"
-        )

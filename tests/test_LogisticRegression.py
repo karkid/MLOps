@@ -2,6 +2,7 @@ import numpy as np
 import pytest
 
 from reml.linear_model import LogisticRegression
+from tests.utils import check_repr
 
 # --- Basic Fit Test ---
 def test_fit_basic():
@@ -81,8 +82,4 @@ def test_decision_boundary():
 
 
 def test_repr():
-    """Check repr displays model parameters."""
-    model = LogisticRegression(learning_rate=0.05, n_iteration=500)
-    text = repr(model)
-    assert "learning_rate=0.05" in text
-    assert "n_iteration=500" in text
+    check_repr(LogisticRegression)

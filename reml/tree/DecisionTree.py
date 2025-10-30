@@ -2,7 +2,7 @@ from collections import Counter
 
 import numpy as np
 
-from reml.utils.decorators import check_fitter
+from reml.utils.decorators import auto_repr, check_fitter
 
 
 class Node:
@@ -19,6 +19,7 @@ class Node:
         return self.value is not None
 
 
+@auto_repr
 class DecisionTree:
     def __init__(self, min_samples_split=2, max_depth=20, n_features=None):
         self.min_samples_split = min_samples_split
@@ -41,7 +42,11 @@ class DecisionTree:
         n_labels = len(np.unique(y))
 
         # cutoff condition
-        if depth > self.max_depth or n_samples < self.min_samples_split or n_labels == 1:
+        if (
+            depth > self.max_depth
+            or n_samples < self.min_samples_split
+            or n_labels == 1
+        ):
             most_common_label = Counter(y).most_common(1)[0][0]
             return Node(value=most_common_label)
 

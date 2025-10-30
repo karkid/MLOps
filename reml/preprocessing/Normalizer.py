@@ -1,8 +1,9 @@
 import numpy as np
 
-from reml.utils.decorators import check_fitter
+from reml.utils.decorators import auto_repr, check_fitter
 
 
+@auto_repr
 class Normalizer:
     def __init__(self, norm="l2"):
         if norm not in ["l1", "l2"]:
@@ -33,6 +34,3 @@ class Normalizer:
 
     def fit_transform(self, X, y=None):
         return self.fit(X, y).transform(X)
-
-    def __repr__(self):
-        return f"Normalizer(norm={self.norm})"

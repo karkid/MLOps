@@ -3,9 +3,10 @@ from collections import Counter
 import numpy as np
 
 from reml.spatial import distance
-from reml.utils.decorators import check_fitter
+from reml.utils.decorators import auto_repr, check_fitter
 
 
+@auto_repr
 class KNeighborsClassifier:
     def __init__(self, k=5, weights="uniform"):  # weights: "uniform" | "distance"
         if k < 1:
@@ -94,6 +95,3 @@ class KNeighborsClassifier:
             return classes[np.argmax(sums)]
         else:
             raise ValueError("weights must be 'uniform' or 'distance'")
-
-    def __repr__(self):
-        return f"KNeighborsClassifier(k={self.k})"
