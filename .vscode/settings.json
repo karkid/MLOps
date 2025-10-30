@@ -19,5 +19,14 @@
     "**/.git": true,
     "**/.ruff_cache": true,
     "**/.coverage": true
-    }
+    },
+    "search.exclude": {
+    "**/.venv": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
+    "**/.git": true,
+    "**/.ruff_cache": true,
+    "**/.coverage": true
+   }
 }
